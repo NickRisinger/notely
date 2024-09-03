@@ -2,10 +2,11 @@ version: '3.9'
 
 services:
   notely-db:
-    image: mongo
+    image: mongo:latest
+    container_name: notely-db
     restart: always
     env_file:
-      - ./.env
+      - ./.env.local
     ports:
       - '27017:27017'
     volumes:
