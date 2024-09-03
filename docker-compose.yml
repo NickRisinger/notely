@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  notely-db:
+    image: mongo
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - notely-network
+
+volumes:
+  mongodata:
+
+networks:
+  notely-network:
+    driver: bridge
